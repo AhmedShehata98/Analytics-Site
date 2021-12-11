@@ -547,7 +547,14 @@ main.price > .container .plan::before{
   background-image: url('../img/grid.png');
   background-size: cover;
 }
-
+@media (max-width:768px){
+  main.price > .container .plan::before,
+  main.price > .container .plan::after
+  {
+    width:60px;
+    height:60px;
+  }
+}
 main.price > .container .plan:hover{
   transform: scale(1.03) translateY(-15px);
 }
