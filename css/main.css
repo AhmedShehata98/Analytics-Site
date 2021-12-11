@@ -95,7 +95,7 @@ header .container{
   justify-content: space-between;
   align-items: center;
   gap:0;
-  overflow: hidden;
+  
 }
 header .container .logo{
   display: flex;
