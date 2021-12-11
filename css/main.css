@@ -639,6 +639,12 @@ footer > .container .footerLinks{
   align-items: center;
   gap: 35px;
 }
+@media (max-width:768px){
+
+  footer > .container .footerLinks{
+    flex-direction: column;
+  }
+}
 footer > .container ul.footerLinks li{
   display: flex;
   justify-content: center;
