@@ -1,0 +1,8 @@
+@keyframes up-down {
+    form{
+        transform: translateY(-50px);
+    }
+    to{
+        transform: translateY(50px);
+    }
+} 
