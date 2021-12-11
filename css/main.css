@@ -6,6 +6,9 @@
 html{
   scroll-behavior: smooth;
 }
+body{
+  overflow: hidden;
+}
 :root{
   --tx-clr:#252525;
   --tx-2-clr:#fff;
