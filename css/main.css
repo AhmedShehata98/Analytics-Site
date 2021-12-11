@@ -551,8 +551,8 @@ main.price > .container .plan::before{
   main.price > .container .plan::before,
   main.price > .container .plan::after
   {
-    width:20px;
-    height:20px;
+    width:35px;
+    height:35px;
   }
 }
 main.price > .container .plan:hover{
