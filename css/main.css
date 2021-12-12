@@ -6,18 +6,20 @@
 html{
   scroll-behavior: smooth;
 }
-
+body{
+  opacity: 0;
+}
 :root{
   --tx-clr:#252525;
   --tx-2-clr:#fff;
   --main-clr:#f5f5f5;
-  --secondary-clr:#6E3CBC;
-  --primary-clr:#9A0680;
+  --secondary-clr:#174e2e;
+  --primary-clr:#116530;
 }
 .container{
   width: calc(100% - 40);
   padding: 0 20px;
-
+  margin: auto;
 }
 .sectionHeading h2{
   font-weight: bold;
@@ -97,6 +99,19 @@ header .container{
   gap:0;
   
 }
+
+@media (max-width:992px) {
+  header .container{
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+}
+@media (max-width:768px){
+  header .container{
+    justify-content: space-between;
+  }
+} 
 header .container .logo{
   display: flex;
   justify-content: center;
@@ -109,6 +124,20 @@ header .container .logo img{
 header .container .logo span{
   font-size: 18px;
   font-weight: bold;
+}
+@media (max-width:992px) {
+  header .container .logo span{
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--tx-2-clr);
+  }
+}
+@media (max-width:768px){
+  header .container .logo span{
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--tx-clr);
+  }
 }
 header .container .toggleBTN{
   position: relative;
@@ -158,7 +187,7 @@ header .container nav{
     flex-direction: column;
     justify-content: flex-start;
     background-color: #ccc;
-    transform: translateX(120%);
+    transform: translateX(150%);
     transition: transform 0.3s;
   }
 }
@@ -166,6 +195,7 @@ header .container nav.active{
   transform: translateX(0);
   transition: 0.3s;
 }
+
 header .container nav li a{
   text-decoration: none;
   color:var(--tx-2-clr);
@@ -179,9 +209,20 @@ header .container nav li:last-child a{
   font-weight: bold;
   color: var(--tx-clr);
   background: var(--main-clr);
-  padding: 10px 30px !important;
+  padding: 10px 30px ;
   border-radius: 45px;
   transition: margin 0.5s ;
+}
+@media (max-width:992px) {
+  header .container nav li:nth-child(1) a,
+  header .container nav li:nth-child(2) a{
+    color: var(--tx-clr);
+  }
+
+  header .container nav li:last-child a{
+    border: 2px solid #252525;
+  }
+  
 }
 header .container nav li:last-child a:hover{
   opacity: 0.8;
@@ -237,12 +278,12 @@ header .container nav li:last-child a:hover{
   content: "";
   position: absolute;
   z-index: 1;
-  top: 10%;
+  top: 17%;
   left: 5%;
   width: 200px;
   height: 200px;
   opacity: 0.5;
-  background-image: url('../img/grid.png');
+  background-image: url('../img/pngfind.com-dot-png-484484.png');
   background-size: cover;
 }
 .platform::after{
@@ -407,11 +448,11 @@ main.Services .container .box{
   position: relative;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px , 1fr));
-  gap: 15px;
+  gap: 25px;
 }
 main.Services .container > div{
   margin-bottom: 50px;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 @media (max-width:768px) {
   main.Services .container > div >h2{
@@ -425,9 +466,18 @@ main.Services > .container .box .serv{
   align-items: center;
   padding: 15px;
   background-color: #fff;
+  user-select: none;
+  opacity: 0;
   box-shadow: 0 0 15px 0 #25252531;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out ,opacity 0.5s ease-in-out;
   border-radius: 12px;
+  transform: translateY(-20px);
+}
+
+main.Services > .container .box .serv.active{
+  opacity: 1;
+  transform: translateY(0);
+  transition: transform 0.5s ease-in-out 
 }
 main.Services .container .box .serv:hover{
   transform: translateY(-10px);
@@ -459,8 +509,8 @@ main.price::after{
   right: 3%;
   width: 200px;
   height: 200px;
-  opacity: 0.9;
-  background-image: url('../img/grid.png');
+  opacity: 0.7;
+  background-image: url('../img/pngfind.com-dot-png-484484.png');
   background-size: cover;
 }
 main.price::before{
@@ -472,7 +522,7 @@ main.price::before{
   width: 80px;
   height: 80px;
   opacity: 0.8;
-  background-image: url('../img/grid.png');
+  background-image: url('../img/pngfind.com-dot-png-484484.png');
   background-size: cover;
 }
 @media (max-width:992px) {
@@ -482,11 +532,20 @@ main.price::before{
   }
 }
 main.price > .container{
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  min-height: 100vh;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: center;
+min-height: 100vh;
+}
+@media (max-width:768px){
+  main.price > .container{
+    margin-bottom: 50px;
+
+  }
+  main.price > .container .plan{
+    margin-top: 50px;
+  }
 }
 main.price  > .container >div{
   margin-top: 150px;
@@ -495,6 +554,9 @@ main.price >.container >div h2{
   width: fit-content;
 }
 @media (max-width:768px) {
+  main.price > .container >div {
+    margin-top: 50px;
+  }
   main.price > .container >div h2{
     font-size: 20px;
   }
@@ -519,17 +581,24 @@ main.price > .container .plan{
   align-items: center;
   height: fit-content;
   padding: 15px;
+  opacity: 0;
   box-shadow: 0 0 15px 0 #2525253b;
   border-radius: 12px;
-  transition: transform 0.3s ease-in-out;
+  transform: translateY(-25px);
+  transition: transform 0.3s ease-in-out ,opacity 0.9s ease-in-out;
+}
+main.price > .container .plan.active{
+  opacity: 1;
+  transform: translateY(0);
+  transition: transform 0.5s ease-in-out 
 }
 main.price > .container .plan::after{
   content: "";
   position: absolute;
-  top: 5%;
+  top: 3%;
   right: 5%;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   opacity: 0.5;
   background-image: url('../img/logotypes.png');
   background-size: cover;
@@ -539,20 +608,20 @@ main.price > .container .plan::before{
   content: "";
   position: absolute;
   z-index: -1;
-  bottom: 15%;
-  left: 15%;
+  bottom: 8%;
+  left: 10%;
   width: 150px;
   height: 150px;
   opacity: 0.5;
-  background-image: url('../img/grid.png');
+  background-image: url('../img/pngfind.com-dot-png-484484.png');
   background-size: cover;
 }
 @media (max-width:768px){
   main.price > .container .plan::before,
   main.price > .container .plan::after
   {
-    width:35px;
-    height:35px;
+    width:60px;
+    height:60px;
   }
 }
 main.price > .container .plan:hover{
@@ -649,6 +718,7 @@ footer > .container .footerLinks{
 @media (max-width:768px){
 
   footer > .container .footerLinks{
+    align-items: flex-start;
     flex-direction: column;
   }
 }
@@ -664,9 +734,24 @@ footer > .container ul.footerLinks li .footico{
   margin-right: 15px;
   color: #c4c4c4;
 }
+footer > .container ul.footerLinks li .footico{
+  padding: 7px;
+  background-color: #252525;
+}
 footer > .container .footerLinks li a{
   color: var(--tx-2-clr);
   text-decoration: none;
   font-size: 16px;
   font-weight: 400;
+}
+@media (max-width:768px) {
+  footer > .container ul.footerLinks li:first-child .footico{
+    font-size: 45px;
+
+  }
+
+  footer > .container .footerLinks li:first-child a{
+    font-size: 13px;
+  }
+  
 }
